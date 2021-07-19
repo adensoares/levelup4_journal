@@ -8,6 +8,9 @@ class NoteCard extends StatelessWidget {
     required this.description,
     required this.date,
     required this.color,
+    required this.hasDate,
+    required this.hasFile,
+    required this.isFavorite,
     Key? key,
   }) : super(key: key);
 
@@ -15,6 +18,9 @@ class NoteCard extends StatelessWidget {
   final String description;
   final String date;
   final Color color;
+  final bool hasDate;
+  final bool hasFile;
+  final bool isFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -67,15 +73,18 @@ class NoteCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                CustomIcon(
-                  icon: Icons.date_range,
-                ),
-                CustomIcon(
-                  icon: Icons.attach_file,
-                ),
-                CustomIcon(
-                  icon: Icons.favorite,
-                ),
+                if (hasDate)
+                  CustomIcon(
+                    icon: Icons.date_range,
+                  ),
+                if (hasFile)
+                  CustomIcon(
+                    icon: Icons.attach_file,
+                  ),
+                if (isFavorite)
+                  CustomIcon(
+                    icon: Icons.favorite,
+                  ),
               ],
             ),
           ),

@@ -11,11 +11,11 @@ final List<DropDownItemData> list = [
     value: "green",
   ),
   DropDownItemData(
-    color: AppColors.darkBlue,
-    value: "darkBlue",
+    color: AppColors.darkPurple,
+    value: "darkPurple",
   ),
   DropDownItemData(
-    color: AppColors.lightBlue,
+    color: AppColors.cyan,
     value: "lightBlue",
   ),
   DropDownItemData(

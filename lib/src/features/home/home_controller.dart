@@ -1,4 +1,4 @@
-import 'package:journal/src/models/notes.dart';
+import 'package:journal/src/models/note_model.dart';
 import 'package:journal/src/shared/constants/app_colors.dart';
 
 class HomeController {
@@ -9,6 +9,9 @@ class HomeController {
           "Lorem ipsum dolor sit amet, consecter adipiscing elit, sed  incididunt ut labore et dolore aliqua.",
       date: "18/07/2021",
       color: AppColors.pink,
+      hasDate: true,
+      hasFile: true,
+      isFavorite: true,
     ),
     Note(
       title: "Reunião com os stakeholders",
@@ -16,6 +19,9 @@ class HomeController {
           "Lorem ipsum dolor sit amet, consecter adipiscing elit, sed  incididunt ut labore et dolore aliqua.",
       date: "18/07/2021",
       color: AppColors.green,
+      hasDate: false,
+      hasFile: true,
+      isFavorite: false,
     ),
     Note(
       title: "Lembretes para o médico",
@@ -23,13 +29,19 @@ class HomeController {
           "Lorem ipsum dolor sit amet, consecter adipiscing elit, sed  incididunt ut labore et dolore aliqua.",
       date: "18/07/2021",
       color: AppColors.purple,
+      hasDate: true,
+      hasFile: true,
+      isFavorite: true,
     ),
     Note(
       title: "Ideias para o novo app 2022",
       description:
           "Lorem ipsum dolor sit amet, consecter adipiscing elit, sed  incididunt ut labore et dolore aliqua.",
       date: "18/07/2021",
-      color: AppColors.lightBlue,
+      color: AppColors.cyan,
+      hasDate: false,
+      hasFile: false,
+      isFavorite: false,
     ),
     Note(
       title: "Reunião do grupo de treinamento",
@@ -37,6 +49,9 @@ class HomeController {
           "Lorem ipsum dolor sit amet, consecter adipiscing elit, sed  incididunt ut labore et dolore aliqua.",
       date: "18/07/2021",
       color: AppColors.yellow,
+      hasDate: true,
+      hasFile: true,
+      isFavorite: true,
     ),
   ];
 }

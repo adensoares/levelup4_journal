@@ -1,16 +1,23 @@
-# journal
+# Level Up #4 - Journal
 
-A new Flutter project.
+Quarto desafio proposto pela Raro Academy.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Level Up são desafios propostos pela Raro Academy para consolidar o conhecimento passado durante as aulas semanais da academia. Para o Level Up #4, foi solicitado que fizéssemos a página de visualização de notas do aplicativo Journal.
 
-A few resources to get you started if this is your first Flutter project:
+## Página de Notas
+<img src="./assets/images/note_list.png" height="500" />
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src="./assets/images/journal.gif" height="500" />
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## To Do
+- [ ] Refazer a Splash Page utilizando texto no lugar de imagem.
+- [ ] Adicionar a lógica do campo Pesquisar. 
+- [ ] Utilizar o Sqlite para armazenar as notas em um banco de dados.
+- [ ] Criar as páginas restantes...
+
+## Depêndencias
+- flutter_staggered_grid_view
+## Referência
+- O design da aplicação Journal foi criado pela Raro Academy.

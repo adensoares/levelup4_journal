@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:journal/src/features/home/home_controller.dart';
+import 'package:journal/src/features/new_note/new_note_page.dart';
 import 'package:journal/src/shared/constants/app_colors.dart';
+import 'package:journal/src/shared/widgets/add_button_widget.dart';
 import 'package:journal/src/shared/widgets/custom_icon_widget.dart';
 import 'package:journal/src/shared/widgets/custom_text_form_field_widget.dart';
 import 'package:journal/src/shared/widgets/note_card_widget.dart';
 
-class NotesPage extends StatefulWidget {
-  const NotesPage({Key? key}) : super(key: key);
+class NoteListPage extends StatefulWidget {
+  const NoteListPage({Key? key}) : super(key: key);
 
   @override
-  _NotesPageState createState() => _NotesPageState();
+  _NoteListPageState createState() => _NoteListPageState();
 }
 
-class _NotesPageState extends State<NotesPage> {
+class _NoteListPageState extends State<NoteListPage> {
   HomeController controller = HomeController();
 
   @override
@@ -55,7 +57,7 @@ class _NotesPageState extends State<NotesPage> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: RawScrollbar(
-                thumbColor: Colors.blue,
+                thumbColor: Color.fromRGBO(175, 172, 243, 0.7),
                 isAlwaysShown: true,
                 thickness: 8,
                 radius: Radius.circular(20),
@@ -64,6 +66,7 @@ class _NotesPageState extends State<NotesPage> {
                     right: 16.0,
                   ),
                   child: StaggeredGridView.countBuilder(
+                    physics: BouncingScrollPhysics(),
                     crossAxisCount: 4,
                     itemCount: controller.notes.length,
                     itemBuilder: (BuildContext context, int index) =>
@@ -74,6 +77,9 @@ class _NotesPageState extends State<NotesPage> {
                         description: controller.notes[index].description,
                         date: controller.notes[index].date,
                         color: controller.notes[index].color,
+                        hasDate: controller.notes[index].hasDate,
+                        hasFile: controller.notes[index].hasFile,
+                        isFavorite: controller.notes[index].isFavorite,
                       ),
                     ),
                     staggeredTileBuilder: (int index) => StaggeredTile.fit(2),
@@ -87,38 +93,14 @@ class _NotesPageState extends State<NotesPage> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Container(
-        width: 56.0,
-        height: 56.0,
-        decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: AppColors.addNoteButtonGradient,
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0, 1),
-                blurRadius: 18.0,
-                spreadRadius: 0,
-                color: Color.fromRGBO(0, 0, 0, 0.12),
-              ),
-              BoxShadow(
-                offset: Offset(0, 6),
-                blurRadius: 10.0,
-                spreadRadius: 0,
-                color: Color.fromRGBO(0, 0, 0, 0.14),
-              ),
-              BoxShadow(
-                offset: Offset(0, 3),
-                blurRadius: 5.0,
-                spreadRadius: -1,
-                color: Color.fromRGBO(0, 0, 0, 0.2),
-              ),
-            ]),
-        child: Center(
-          child: Icon(
-            Icons.add,
-            color: Colors.white,
-          ),
-        ),
+      floatingActionButton: AddButton(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) => NewNotePage(),
+            ),
+          );
+        },
       ),
     );
   }

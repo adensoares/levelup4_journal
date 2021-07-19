@@ -52,6 +52,7 @@ class _NewNotePageState extends State<NewNotePage> {
                     width: 270.0,
                     child: CustomTextFormField(
                       hintText: "Título",
+                      border: InputBorder.none,
                     ),
                   ),
                   DropdownButton(
@@ -104,6 +105,7 @@ class _NewNotePageState extends State<NewNotePage> {
                   minLines: 1,
                   keyboardType: TextInputType.multiline,
                   hintText: "Digite aqui...",
+                  border: InputBorder.none,
                 ),
               ),
             ),
